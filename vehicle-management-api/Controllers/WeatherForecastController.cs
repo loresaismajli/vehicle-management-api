@@ -1,33 +1,30 @@
 using Microsoft.AspNetCore.Mvc;
+using models.Entities;
 
 namespace vehicle_management_api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("home")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        // home/GetText
+        [HttpGet("GetText")]
+        public Employee GetText()
         {
-            _logger = logger;
-        }
 
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
-        {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            Region region1 = new Region();
+            region1.Id = 1;
+            region1.Name = "DPR";
+
+            Employee employee = new Employee();
+            employee.Id = 1;
+            employee.FirstName = "Test";
+            employee.LastName = "Fisteku";
+            employee.RegionId = 1;
+            employee.Region = region1;
+
+            return employee;
         }
     }
 }
