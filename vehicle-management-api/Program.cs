@@ -1,23 +1,36 @@
+using vehicle_management_api.Helpers.Filters;
+using vehicle_management_api.Helpers.Swagger;
+using vehicle_management_api.Helpers;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+GlobalServices.AddDefaultServices(builder);
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+// Add swagger
+SwaggerHelper.AddSwagger(builder);
 
+// Add transient services
+GlobalServices.AddTransientDependencies(builder);
+
+// Add DB Context (Entity Framework)
+GlobalServices.AddDbContext(builder);
+
+// add jwt authorization
+GlobalServices.AddAuthorization(builder);
+
+// Build application
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// use general exceptions handler (use error-response-model)
+ExceptionsHandler.Configure(app);
+
+// Use development middlewares
 if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    GlobalServices.UseDevelopmentMiddlewares(app);
 
-app.UseAuthorization();
+// use all middlewares
+GlobalServices.UseMiddlewares(app);
 
-app.MapControllers();
-
+// run application
 app.Run();
