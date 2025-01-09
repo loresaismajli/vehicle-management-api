@@ -20,7 +20,7 @@ namespace data_access.EntityConfigs
 
             // Seeding Data for Employee
             builder.HasData(
-                new Employee() { Id = 4, FirstName = "Bob", LastName = "Williams", Email = "bob.williams@company.com", Password = "password101", PhoneNumber = "5566778899", RoleId = 4, RegionId = 1 }
+                new Employee() { Id = 4, FirstName = "Bob", LastName = "Williams", Email = "bob.williams@company.com", Password = "password101", PhoneNumber = "5566778899", RoleId = 1, RegionId = 1 }
             );
         }
     }

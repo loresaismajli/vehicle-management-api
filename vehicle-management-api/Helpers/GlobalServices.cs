@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using models.Utils;
+using repository.Implementations;
+using repository.Interfaces;
 using services.Implementations;
 using services.Interfaces;
 
@@ -48,8 +50,14 @@ namespace vehicle_management_api.Helpers
             // services
             builder.Services.AddSingleton<IJwtService, JwtService>();
             builder.Services.AddTransient<IAuthService, AuthService>();
+            builder.Services.AddTransient<IAccidentsService, AccidentsService>();
+            builder.Services.AddTransient<IUsersService, UsersService>();
+            builder.Services.AddTransient<IVehiclesService, VehiclesService>();
 
             // repository
+            builder.Services.AddTransient<IAccidentsRepository, AccidentsRepository>();
+            builder.Services.AddTransient<IUsersRepository, UsersRepository>();
+            builder.Services.AddTransient<IVehiclesRepository, VehiclesRepository>();
         }
 
         public static void AddAuthorization(WebApplicationBuilder builder)

@@ -11,7 +11,7 @@ namespace data_access.EntityConfigs
             builder.HasKey(e => e.Id);
 
             builder.Property(e => e.Id)
-                .IsRequired(false)
+                .IsRequired()
                 .HasColumnType("int");
 
             builder.Property(e => e.Number)

@@ -14,7 +14,7 @@ namespace data_access.EntityConfigs
 
             // Seeding Data for Contractor
             builder.HasData(
-                new Contractor() { Id = 3, FirstName = "Alice", LastName = "Johnson", Email = "alice.johnson@contractor.com", Password = "password789", PhoneNumber = "1112233445", RoleId = 3, CompanyName = "ACME Corp" }
+                new Contractor() { Id = 3, FirstName = "Alice", LastName = "Johnson", Email = "alice.johnson@contractor.com", Password = "password789", PhoneNumber = "1112233445", RoleId = 2, CompanyName = "ACME Corp" }
             );
         }
     }

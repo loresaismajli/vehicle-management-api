@@ -10,12 +10,18 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\data-access\data-access.csproj" />
     <ProjectReference Include="..\exceptions\exceptions.csproj" />
     <ProjectReference Include="..\models\models.csproj" />
+    <ProjectReference Include="..\repository\repository.csproj" />
     <ProjectReference Include="..\services\services.csproj" />
   </ItemGroup>
 
