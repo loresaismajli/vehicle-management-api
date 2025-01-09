@@ -1,5 +1,7 @@
 ﻿using System.Text;
+using data_access;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using models.Utils;
 using services.Implementations;
@@ -75,12 +77,12 @@ namespace vehicle_management_api.Helpers
 
         public static void AddDbContext(WebApplicationBuilder builder)
         {
-            //string dbConnectionString = builder.Configuration[AppSettingsKeys.DB_CONNECTION_STRING];
+            string dbConnectionString = builder.Configuration[AppSettingsKeys.DB_CONNECTION_STRING];
 
-            //builder.Services.AddDbContext<ApplicationDbContext>(options =>
-            //{
-            //    options.UseSqlServer(dbConnectionString);
-            //});
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                options.UseSqlServer(dbConnectionString);
+            });
         }
     }
 }

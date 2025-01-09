@@ -9,6 +9,8 @@
         public string? Password { get; set; }
         public string? PhoneNumber { get; set; }
         public int? RoleId { get; set; }
-        public Role Role { get; set; }
+        public Role? Role { get; set; }
+        public List<Service>? Services { get; set; }
+        public List<Accident>? Accidents { get; set; }
     }
 }
