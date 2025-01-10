@@ -6,7 +6,7 @@ using vehicle_management_api.Helpers.Models;
 
 namespace vehicle_management_api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/vehicles")]
     [ApiController]
     public class VehiclesController : ControllerBase
     {
