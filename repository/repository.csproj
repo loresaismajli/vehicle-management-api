@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\data-access\data-access.csproj" />
+    <ProjectReference Include="..\exceptions\exceptions.csproj" />
+    <ProjectReference Include="..\models\models.csproj" />
+  </ItemGroup>
+
 </Project>

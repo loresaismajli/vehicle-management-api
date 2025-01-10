@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 using models.Entities;
+using System.Reflection.Emit;
 
 namespace data_access.EntityConfigs
 {
@@ -36,7 +37,9 @@ namespace data_access.EntityConfigs
 
             builder.Property(e => e.RoleId)
                 .IsRequired(false)
-                .HasColumnType("int");
+            .HasColumnType("int");
+
+            builder.Ignore(e  => e.Description);
 
             builder
                 .HasOne(e => e.Role)

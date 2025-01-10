@@ -12,5 +12,11 @@
         public Role? Role { get; set; }
         public List<Service>? Services { get; set; }
         public List<Accident>? Accidents { get; set; }
+        public string Description { get; set; }
+
+        public override string ToString()
+        {
+            return "Undefined user";
+        }
     }
 }
