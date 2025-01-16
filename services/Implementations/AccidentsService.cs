@@ -51,8 +51,8 @@ namespace services.Implementations
 
             if (result == null) throw new EntityNotFoundException();
 
-            result.Vehicle.Accidents = null;
-            result.User.Accidents = null;
+            result.Vehicle.Services = null;
+            result.User.Services = null;
             result.ServiceType.Services = null;
 
             return result;
